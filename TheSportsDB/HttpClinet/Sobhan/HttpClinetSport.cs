@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 using System.Threading.Tasks;
 using TheSportsDB.Models;
+using TheSportsDB.Models.Sobhan;
 using TheSportsDB.Services;
 using static TheSportsDB.Models.TeamName;
 
@@ -25,6 +26,7 @@ namespace TheSportsDB.HttpClinet
             this.client.DefaultRequestHeaders.Add("Accept", "application/json");
             this.repository = repository;
         }
+
         public List<SportName> GetSportName()
         {
             try
@@ -53,37 +55,109 @@ namespace TheSportsDB.HttpClinet
                 throw new Exception("your request has problem!");
             }
         }
-    
 
-    public List<TeamName> GetTeamByName(string teamName)
-    {
-        var httpResponse = client.GetAsync($"api/v1/json/1/searchteams.php?t={teamName}").Result;
-        httpResponse.EnsureSuccessStatusCode();
-        if (!httpResponse.IsSuccessStatusCode)
+
+        public List<TeamName> GetTeamByName(string teamName)
         {
-            return null;
-        }
-
-        List<TeamName> result;
-        using (HttpContent content = httpResponse.Content)
-        {
-
-            string stringContent = content.ReadAsStringAsync()
-                .Result;
-
-            var resultService = JsonSerializer.Deserialize<TeamList>(stringContent);
-            var resulTeamNames = resultService.teams.Select(x => new TeamName()
+            var httpResponse = client.GetAsync($"api/v1/json/1/searchteams.php?t={teamName}").Result;
+            httpResponse.EnsureSuccessStatusCode();
+            if (!httpResponse.IsSuccessStatusCode)
             {
-                Team = x.strTeam,
-                Alternate = x.strAlternate,
-                DescriptionEN = x.strDescriptionEN,
-                FormedYear = x.intFormedYear,
-                League = x.strLeague,
-                Stadium = x.strStadium
-            }).ToList();
-            result = resulTeamNames.Take(2).ToList();
+                return null;
+            }
+
+            List<TeamName> result;
+            using (HttpContent content = httpResponse.Content)
+            {
+
+                string stringContent = content.ReadAsStringAsync()
+                    .Result;
+
+                var resultService = JsonSerializer.Deserialize<TeamList>(stringContent);
+                var resulTeamNames = resultService.teams.Select(x => new TeamName()
+                {
+                    Team = x.strTeam,
+                    Alternate = x.strAlternate,
+                    DescriptionEN = x.strDescriptionEN,
+                    FormedYear = x.intFormedYear,
+                    League = x.strLeague,
+                    Stadium = x.strStadium
+                }).ToList();
+                result = resulTeamNames.Take(2).ToList();
+            }
+            return result;
         }
-        return result;
+
+        public List<NameCountry> GetByCountries()
+        {
+            try
+            {
+                //api/v1/json/1/all_countries.php
+                var httpResponse = client.GetAsync($"api/v1/json/1/all_countries.php").Result;
+                httpResponse.EnsureSuccessStatusCode();
+                if (!httpResponse.IsSuccessStatusCode)
+                {
+                    return null;
+                }
+
+                List<NameCountry> resuList;
+
+                using (HttpContent content = httpResponse.Content)
+                {
+
+                    string stringContent = content.ReadAsStringAsync()
+                        .Result;
+
+                    var resultService = JsonSerializer.Deserialize<NameCountryListSportDB>(stringContent);
+                    resuList = resultService.countries.Select(x => new NameCountry() { name = x.name_en }).ToList();
+
+                }
+
+                return resuList;
+            }
+            catch
+            {
+                Console.WriteLine($"Error Country");
+                throw;
+            }
+        }
+
+
+        public List<CountrySport> GetCountryBySports(string nameCountry)
+        {
+            try
+            {
+                var httpResponse = client.GetAsync($"api/v1/json/1/search_all_leagues.php?c={nameCountry}").Result;
+                httpResponse.EnsureSuccessStatusCode();
+                if (!httpResponse.IsSuccessStatusCode)
+                {
+                    return null;
+                }
+
+                List<CountrySport> result;
+                using (HttpContent content = httpResponse.Content)
+                {
+
+                    string stringContent = content.ReadAsStringAsync()
+                        .Result;
+
+                    var resultService = JsonSerializer.Deserialize<CountrySportDbList>(stringContent);
+                    result = resultService.countrys.Select(x => new CountrySport()
+                        {idLeague = x.idLeague, League = x.strLeague, Sport = x.strSport}).ToList();
+                }
+
+                return result;
+
+
+            }
+            catch
+            {
+                Console.WriteLine("Error League");
+                throw;
+            }
+        }
+
+
+
     }
-}
 }
