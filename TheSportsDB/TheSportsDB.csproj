@@ -6,11 +6,8 @@
 
   <ItemGroup>
     <Folder Include="Controllers\Ali\" />
-    <Folder Include="Controllers\Rahbar\" />
     <Folder Include="HttpClinet\Ali\" />
-    <Folder Include="HttpClinet\Rahbar\" />
     <Folder Include="Models\Ali\" />
-    <Folder Include="Models\Rahbar\" />
   </ItemGroup>
 
 
