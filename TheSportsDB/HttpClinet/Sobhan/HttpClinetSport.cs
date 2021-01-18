@@ -46,13 +46,13 @@ namespace TheSportsDB.HttpClinet
                     result = resultService.sports.Select(x => new SportName { strSport = x.strSport }).ToList();
                 }
                 return result;
-            //}
-           // catch (Exception)
-            //{
+    //    }
+    //        catch (Exception)
+    //        {
 
-               // throw new Exception("your request has problem!");
-            //} 
-        }
+    //            throw new Exception("your request has problem!");
+    //}
+}
 
         public List<TeamName> GetTeamByName(string teamName)
         {
