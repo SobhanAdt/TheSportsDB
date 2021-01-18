@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TheSportsDB.HttpClinet;
+using TheSportsDB.HttpClinet.Ali;
 using TheSportsDB.Repositores;
 using TheSportsDB.Services;
 
@@ -29,6 +30,7 @@ namespace TheSportsDB
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient<HttpClinetSport>();
+            services.AddHttpClient<HttpClientTeamsOfLeague>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddControllers();
         }
