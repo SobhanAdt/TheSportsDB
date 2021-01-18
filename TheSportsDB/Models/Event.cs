@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TheSportsDB.Models;
 
 namespace TheSportsDB.Models
 {
-
-    public class SportName
+    public class Event
     {
+        public string idTeam { get; set; }
         public string strSport { get; set; }
+        public string strTeam { get; set; }
     }
-    public class SportNameLst
-    {
-        public List<SportName> sports { get; set; }
-    }
-
- 
 
 }

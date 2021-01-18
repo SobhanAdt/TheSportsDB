@@ -25,23 +25,38 @@ namespace TheSportsDB.HttpClinet
         }
         public List<SportName> GetSportName()
         {
-            var httpResponse = client.GetAsync("api/v1/json/1/all_sports.php").Result;
-            httpResponse.EnsureSuccessStatusCode();
-            if (!httpResponse.IsSuccessStatusCode)
-            {
-                return null;
-            }
-            List<SportName> result;
-            using (HttpContent content = httpResponse.Content)
-            {
+            //try
+           // {
+                var httpResponse = client.GetAsync("api/v1/json/1/all_sports.php").Result;
+                httpResponse.EnsureSuccessStatusCode();
+                if (!httpResponse.IsSuccessStatusCode)
+                {
+                    return null;
+                }
+                List<SportName> result;
+                using (HttpContent content = httpResponse.Content)
+                {
 
-                string stringContent = content.ReadAsStringAsync()
-                                               .Result;
+                    string stringContent = content.ReadAsStringAsync()
+                                                   .Result;
 
-                var resultService = JsonSerializer.Deserialize<SportNameLst>(stringContent);
-                result = resultService.sports.Select(x => new SportName { strSport = x.strSport }).ToList();
-            }
-            return result;
+                    var resultService = JsonSerializer.Deserialize<SportNameLst>(stringContent);
+                    result = resultService.sports.Select(x => new SportName { strSport = x.strSport }).ToList();
+                }
+                return result;
+            //}
+           // catch (Exception)
+            //{
+
+               // throw new Exception("your request has problem!");
+            //} 
         }
+
+       // public List<Event> GetEvent(string teamname,string sportname)
+       // {
+       //ino natoonesam bezanam 
+       //chand ta rah raftam nashod
+
+       // }
     }
 }

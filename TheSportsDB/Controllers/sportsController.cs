@@ -19,7 +19,7 @@ namespace TheSportsDB.Controllers
             this.client = client;
         }
         [HttpGet]
-        public List<SportName> Getarea()
+        public List<SportName> GetName()
         {
             return client.GetSportName();
         }
