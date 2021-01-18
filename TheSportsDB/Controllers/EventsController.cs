@@ -18,24 +18,24 @@ namespace TheSportsDB.Controllers
         {
             this.client = client;
         }
-        [HttpGet]
-        public List<Event> GetEvent([FromQuery] Event input)
-        {
-            switch (input.strSport)
-            {
-                case "Soccor":
-                    return client.GetEvent(input.selected);
-                case "meal":
-                    return clientFood.GetFoodBycat(filter.cat);
-                case "area":
-                    return clientFood.GetFoodByarea(filter.area);
+        //[HttpGet]
+        //public List<Event> GetEvent([FromQuery] Event input)
+        //{
+        //    switch (input.strSport)
+        //    {
+        //        case "Soccor":
+        //            return client.GetEvent(input.selected);
+        //        case "meal":
+        //            return clientFood.GetFoodBycat(filter.cat);
+        //        case "area":
+        //            return clientFood.GetFoodByarea(filter.area);
 
-                default:
-                    {
-                        throw new ArgumentException("Invalid Category");
-                    }
-            }
-            return null;
-        }
+        //        default:
+        //            {
+        //                throw new ArgumentException("Invalid Category");
+        //            }
+        //    }
+        //    return null;
+        //}
     }
 }
