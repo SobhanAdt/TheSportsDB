@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TheSportsDB.HttpClinet;
+using TheSportsDB.HttpClinet.Ali;
 using TheSportsDB.HttpClinet.Rahbar;
 using TheSportsDB.Repositores;
 using TheSportsDB.Services;
