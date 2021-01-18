@@ -91,8 +91,7 @@ namespace TheSportsDB.HttpClinet
             }
             catch 
             {
-                Console.WriteLine("Error Team");
-                throw;
+                throw new Exception("Error Team");
             }
         
         }
@@ -125,8 +124,7 @@ namespace TheSportsDB.HttpClinet
             }
             catch
             {
-                Console.WriteLine($"Error Country");
-                throw;
+                throw new Exception($"Error Country");
             }
         }
 
@@ -160,8 +158,8 @@ namespace TheSportsDB.HttpClinet
             }
             catch
             {
-                Console.WriteLine("Error League");
-                throw;
+                throw new Exception("Error League");
+                
             }
         }
 
