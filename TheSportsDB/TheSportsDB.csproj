@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Rahbar\" />
-    <Folder Include="HttpClinet\Rahbar\" />
-    <Folder Include="Models\Rahbar\" />
+    <Folder Include="Controllers\Ali\" />
+    <Folder Include="HttpClinet\Ali\" />
+    <Folder Include="Models\Ali\" />
   </ItemGroup>
 
 
