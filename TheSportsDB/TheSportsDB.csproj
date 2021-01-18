@@ -4,5 +4,17 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Ali\" />
+    <Folder Include="Controllers\Sobhan\" />
+    <Folder Include="Controllers\Rahbar\" />
+    <Folder Include="HttpClinet\Ali\" />
+    <Folder Include="HttpClinet\Sobhan\" />
+    <Folder Include="HttpClinet\Rahbar\" />
+    <Folder Include="Models\Ali\" />
+    <Folder Include="Models\Sobhan\" />
+    <Folder Include="Models\Rahbar\" />
+  </ItemGroup>
+
 
 </Project>

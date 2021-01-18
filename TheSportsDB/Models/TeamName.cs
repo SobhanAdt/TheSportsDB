@@ -19,26 +19,26 @@ namespace TheSportsDB.Models
         public string Stadium { get; set; }
 
         public string DescriptionEN { get; set; }
-
-
-        public class TeamNameTheSports
-        {
-            public string strTeam { get; set; }
-
-            public string strAlternate { get; set; }
-
-            public string intFormedYear { get; set; }
-
-            public string strLeague { get; set; }
-
-            public string strStadium { get; set; }
-
-            public string strDescriptionEN { get; set; }
-        }
-
-        public class TeamList
-        {
-            public List<TeamNameTheSports> teams { get; set; }
-        }
     }
+
+    public class TeamNameTheSports
+    {
+        public string strTeam { get; set; }
+
+        public string strAlternate { get; set; }
+
+        public string intFormedYear { get; set; }
+
+        public string strLeague { get; set; }
+
+        public string strStadium { get; set; }
+
+        public string strDescriptionEN { get; set; }
+    }
+
+    public class TeamList
+    {
+        public List<TeamNameTheSports> teams { get; set; }
+    }
+
 }
