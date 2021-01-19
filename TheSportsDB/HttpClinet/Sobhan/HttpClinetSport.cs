@@ -85,7 +85,7 @@ namespace TheSportsDB.HttpClinet
                         League = x.strLeague,
                         Stadium = x.strStadium
                     }).ToList();
-                    result = resulTeamNames.Take(2).ToList();
+                    result = resulTeamNames.Take(1).ToList();
                 }
                 return result;
             }
@@ -273,6 +273,30 @@ namespace TheSportsDB.HttpClinet
             {
                 throw new Exception("Error Message Event Nest");
             }
+        }
+
+        public List<TeamName> GetFavoritesTeam(string username)
+        {
+            try
+            {
+                var Success = repository.GetByInfoUser(username);
+                if (Success.UserName == null)
+                    return null;
+
+                List<TeamName> lstTeam = new List<TeamName>();
+                for (int i = 0; i < Success.favorites.Count; i++)
+                {
+                    var result = GetTeamByName(Success.favorites[i]);
+                    lstTeam.AddRange(result);
+                }
+
+                return lstTeam;
+            }
+            catch
+            {
+                throw new Exception("Error Favorites Team");
+            }
+          
         }
 
     }
