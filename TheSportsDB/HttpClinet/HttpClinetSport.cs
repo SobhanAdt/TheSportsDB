@@ -224,8 +224,8 @@ namespace TheSportsDB.HttpClinet
                     string stringContent = content.ReadAsStringAsync()
                         .Result;
 
-                    var eventService = JsonSerializer.Deserialize<EventSportList>(stringContent);
-                    events = eventService.events.Select(x => new Event()
+                    var eventService = JsonSerializer.Deserialize<EventSportListNetId>(stringContent);
+                    events = eventService.results.Select(x => new Event()
                     {
                         idEvent = x.idEvent,
                         EventName = x.strEvent,

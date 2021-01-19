@@ -39,4 +39,9 @@ namespace TheSportsDB.Models
     {
         public List<EventSportDB> events { get; set; }
     }
+
+    public class EventSportListNetId
+    {
+        public List<EventSportDB> results { get; set; }
+    }
 }
