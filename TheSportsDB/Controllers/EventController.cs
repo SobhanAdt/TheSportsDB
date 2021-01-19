@@ -21,19 +21,19 @@ namespace TheSportsDB.Controllers
         }
 
         [HttpGet]
-        public List<Event> GetNextPlay(string id)
+        public List<Event> NextPlay(string id)
         {
             return clinet.GetNext15EventsbyLeague(id);
         }
 
         [HttpGet]
-        public List<Event> GetLastPlay(string id)
+        public List<Event> LastPlay(string id)
         {
             return clinet.GetLast15EventsbyLeague(id);
         }
 
         [HttpGet]
-        public List<Event> GetLastFiveGame(string id)
+        public List<Event> LastFiveGame(string id)
         {
             return clinet.GetLast5EventsbyTeam(id);
         }
