@@ -101,7 +101,6 @@ namespace TheSportsDB.HttpClinet
             }
         }
 
-
         public List<CountrySport> GetCountryBySports(string nameCountry)
         {
             try
@@ -273,7 +272,7 @@ namespace TheSportsDB.HttpClinet
         }
 
 
-        //Ali
+        //Mr Ali
         public List<TeamsOfLeagueName> GetLeaguestr(string query)
         {
             try
