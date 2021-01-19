@@ -9,23 +9,27 @@ using TheSportsDB.Models.Sobhan;
 
 namespace TheSportsDB.Controllers.Sobhan
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
-    public class CountryController : ControllerBase
+    public class EventController : ControllerBase
     {
         private readonly HttpClinetSport clinet;
 
-        public CountryController(HttpClinetSport clinet)
+        public EventController(HttpClinetSport clinet)
         {
             this.clinet = clinet;
         }
 
         [HttpGet]
-        public List<NameCountry> Get()
+        public List<Event> GetNextPlay(string id)
         {
-            return clinet.GetByCountries();
+            return clinet.GetNext15EventsbyLeague(id);
         }
 
-       
+        [HttpGet]
+        public List<Event> GetLastPlay(string id)
+        {
+            return clinet.GetLast15EventsbyLeague(id);
+        }
     }
 }

@@ -11,21 +11,19 @@ namespace TheSportsDB.Controllers.Sobhan
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CountryController : ControllerBase
+    public class CountrySportController : ControllerBase
     {
         private readonly HttpClinetSport clinet;
 
-        public CountryController(HttpClinetSport clinet)
+        public CountrySportController(HttpClinetSport clinet)
         {
             this.clinet = clinet;
         }
 
         [HttpGet]
-        public List<NameCountry> Get()
+        public List<CountrySport> GetCountryBySports([FromQuery] string nameCountry)
         {
-            return clinet.GetByCountries();
+            return clinet.GetCountryBySports(nameCountry);
         }
-
-       
     }
 }
