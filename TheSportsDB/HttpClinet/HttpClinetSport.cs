@@ -6,9 +6,6 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 using System.Threading.Tasks;
 using TheSportsDB.Models;
-using TheSportsDB.Models.Ali;
-using TheSportsDB.Models.Rahbar;
-using TheSportsDB.Models.Sobhan;
 using TheSportsDB.Services;
 using static TheSportsDB.Models.TeamName;
 

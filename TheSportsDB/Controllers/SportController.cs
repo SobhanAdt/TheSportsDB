@@ -6,8 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TheSportsDB.HttpClinet;
 using TheSportsDB.Models;
-using TheSportsDB.Models;
-using TheSportsDB.Models;
+
 
 namespace TheSportsDB.Controllers
 {
