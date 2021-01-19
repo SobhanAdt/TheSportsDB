@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TheSportsDB.Models.Sobhan
+namespace TheSportsDB.Models
 {
     public class Event
     {

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TheSportsDB.HttpClinet;
-using TheSportsDB.Models.Sobhan;
+using TheSportsDB.Models;
 
-namespace TheSportsDB.Controllers.Sobhan
+namespace TheSportsDB.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]

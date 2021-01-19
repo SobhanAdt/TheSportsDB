@@ -8,11 +8,18 @@ namespace TheSportsDB.Models
 
     public class SportName
     {
+        public string Sport { get; set; }
+    }
+
+    public class SportNameDB
+    {
         public string strSport { get; set; }
     }
+
+
     public class SportNameLst
     {
-        public List<SportName> sports { get; set; }
+        public List<SportNameDB> sports { get; set; }
     }
 
  

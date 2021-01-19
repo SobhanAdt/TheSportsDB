@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TheSportsDB.Models.Sobhan
+namespace TheSportsDB.Models
 {
     public class CountrySport
     {
@@ -13,10 +13,6 @@ namespace TheSportsDB.Models.Sobhan
         public string League { get; set; }
     }
 
-    //public class CountrySportList
-    //{
-    //    public List<CountrySport> CountrySports { get; set; }
-    //}
 
     public class CountrySportDb
     {

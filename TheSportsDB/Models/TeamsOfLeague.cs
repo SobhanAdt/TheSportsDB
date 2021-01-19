@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TheSportsDB.Models.Ali
+namespace TheSportsDB.Models
 {
     public class TeamsOfLeague
     {
@@ -11,6 +11,14 @@ namespace TheSportsDB.Models.Ali
         public string strTeam { get; set; }
         public string strLeague { get; set; }
     }
+
+    public class TeamsOfLeagueName
+    {
+        public string Id { get; set; }
+        public string TeamName { get; set; }
+        public string LeagueName { get; set; }
+    }
+
     public class TeamsOfLeagueList
     {
         public List<TeamsOfLeague> teams { get; set; }
