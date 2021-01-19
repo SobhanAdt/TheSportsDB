@@ -198,10 +198,50 @@ namespace TheSportsDB.HttpClinet
         }
 
         public List<Event> GetLast15EventsbyLeague(string id)
+
         {
             try
             {
                 var httpResponse = client.GetAsync($"api/v1/json/1/eventspastleague.php?id={id}").Result;
+                httpResponse.EnsureSuccessStatusCode();
+                if (!httpResponse.IsSuccessStatusCode)
+                {
+                    return null;
+                }
+
+                List<Event> events;
+                using (HttpContent content = httpResponse.Content)
+                {
+
+                    string stringContent = content.ReadAsStringAsync()
+                        .Result;
+
+                    var eventService = JsonSerializer.Deserialize<EventSportList>(stringContent);
+                    events = eventService.events.Select(x => new Event()
+                    {
+                        idEvent = x.idEvent,
+                        EventName = x.strEvent,
+                        AwayTeam = x.strAwayTeam,
+                        HomeTeam = x.strHomeTeam,
+                        League = x.strLeague,
+                        Timestamp = x.strTimestamp
+                    }).ToList();
+                }
+
+                return events;
+            }
+            catch
+            {
+                throw new Exception("Error Message Event Nest");
+            }
+        }
+
+        public List<Event> GetLast5EventsbyTeam(string id)
+
+        {
+            try
+            {
+                var httpResponse = client.GetAsync($"api/v1/json/1/eventslast.php?id={id}").Result;
                 httpResponse.EnsureSuccessStatusCode();
                 if (!httpResponse.IsSuccessStatusCode)
                 {

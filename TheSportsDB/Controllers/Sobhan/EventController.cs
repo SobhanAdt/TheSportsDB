@@ -31,5 +31,11 @@ namespace TheSportsDB.Controllers.Sobhan
         {
             return clinet.GetLast15EventsbyLeague(id);
         }
+
+        [HttpGet]
+        public List<Event> GetLastFiveGame(string id)
+        {
+            return clinet.GetLast5EventsbyTeam(id);
+        }
     }
 }
